@@ -10,6 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var inputNumber: UITextField!
+    
+    @IBOutlet weak var result: UILabel!
+    
+    @IBAction func isItPrime(sender: AnyObject) {
+        var i = 2
+        
+        let inputNumberInt = Int(inputNumber.text!)
+        while inputNumberInt! % i > 0 && i < inputNumberInt {
+            
+            i++
+        }
+        if i == inputNumber {
+            result.text = "\(inputNumber) is prime"
+        } else {
+            result.text = "\(inputNumber) is not prime as it is divisible by \(i)"
+        }
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
