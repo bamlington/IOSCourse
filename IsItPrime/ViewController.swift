@@ -25,7 +25,10 @@ class ViewController: UIViewController {
         }
         if i == inputNumberInt {
             result.text = "\(inputNumberInt!) is prime"
-        } else {
+        } else if inputNumberInt == 1 {
+            result.text = "1 is not a prime number, never was a prime number, and never will be a prime number"
+        }
+                else {
             result.text = "\(inputNumberInt!) is not prime as it is divisible by \(i)"
         }
     }
