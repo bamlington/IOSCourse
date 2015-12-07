@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var inputNumber: UITextField!
     
-    @IBOutlet weak var result: UILabel!
+   @IBOutlet weak var result: UILabel!
+    
     
     @IBAction func isItPrime(sender: AnyObject) {
         var i = 2
@@ -22,10 +23,10 @@ class ViewController: UIViewController {
             
             i++
         }
-        if i == inputNumber {
-            result.text = "\(inputNumber) is prime"
+        if i == inputNumberInt {
+            result.text = "\(inputNumberInt!) is prime"
         } else {
-            result.text = "\(inputNumber) is not prime as it is divisible by \(i)"
+            result.text = "\(inputNumberInt!) is not prime as it is divisible by \(i)"
         }
     }
     
