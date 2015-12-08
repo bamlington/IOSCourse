@@ -21,23 +21,26 @@ class ViewController: UIViewController {
         
         if let inputNumberInt = Int(inputNumber.text!) {
             
-            // iterate through until a divisor is found
-            // only works for positive integers!
-            while inputNumberInt % i > 0 && i < inputNumberInt {
-                
-                i++
-            }
             
-            // output a message
-            if i == inputNumberInt {
-                result.text = "\(inputNumberInt) is prime"
-            } else if inputNumberInt == 1 {
-                result.text = "1 is not a prime number, never was a prime number, and never will be a prime number"
+            // handle non positive numbers
+            if inputNumberInt > 0 {
+                // iterate through until a divisor is found
+                while inputNumberInt % i > 0 && i < inputNumberInt {
+                    
+                    i++
+                }
+                
+                // output a message
+                if i == inputNumberInt {
+                    result.text = "\(inputNumberInt) is prime"
+                } else if inputNumberInt == 1 {
+                    result.text = "1 is not a prime number, never was a prime number, and never will be a prime number"
+                } else {
+                    result.text = "\(inputNumberInt) is not prime as it is divisible by \(i)"
+                }
             } else {
-                result.text = "\(inputNumberInt) is not prime as it is divisible by \(i)"
+                result.text = "Please enter an integer in the box"
             }
-        } else {
-            result.text = "Please enter an integer in the box"
         }
         
     }
