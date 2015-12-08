@@ -18,22 +18,29 @@ class ViewController: UIViewController {
     @IBAction func isItPrime(sender: AnyObject) {
         var i = 2
         
-        let inputNumberInt = Int(inputNumber.text!)
-        while inputNumberInt! % i > 0 && i < inputNumberInt {
+        
+        if let inputNumberInt = Int(inputNumber.text!) {
             
-            i++
+            // iterate through until a divisor is found
+            // only works for positive integers!
+            while inputNumberInt % i > 0 && i < inputNumberInt {
+                
+                i++
+            }
+            
+            // output a message
+            if i == inputNumberInt {
+                result.text = "\(inputNumberInt) is prime"
+            } else if inputNumberInt == 1 {
+                result.text = "1 is not a prime number, never was a prime number, and never will be a prime number"
+            } else {
+                result.text = "\(inputNumberInt) is not prime as it is divisible by \(i)"
+            }
+        } else {
+            result.text = "Please enter an integer in the box"
         }
-        if i == inputNumberInt {
-            result.text = "\(inputNumberInt!) is prime"
-        } else if inputNumberInt == 1 {
-            result.text = "1 is not a prime number, never was a prime number, and never will be a prime number"
-        }
-                else {
-            result.text = "\(inputNumberInt!) is not prime as it is divisible by \(i)"
-        }
+        
     }
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +50,8 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    
     }
-
 
 }
 
